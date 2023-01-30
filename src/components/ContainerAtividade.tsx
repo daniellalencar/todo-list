@@ -9,20 +9,19 @@ interface IProps {
     onConcluirAtividade: (id: string) => void;
 }
 
-interface RadioButton {
+interface CheckBoxAtividade {
     id: string;
-    value: string;
+    isEnabled: boolean;
 }
-
+type CheckboxStates = { [key: string]: boolean };
 export function ContainerAtividade({ atividades, onExcluirAtividade, onConcluirAtividade }: IProps) {
-
-    const [selectedValue, setSelectedValue] = useState<{ [key: string]: boolean }>({});
-
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setSelectedValue({ ...selectedValue, [event.target.id]: event.target.checked });
+    const [checkboxStates, setCheckboxStates] = useState<CheckboxStates>({});
+    const handleCheckboxChange = (id: string) => {
+        setCheckboxStates({
+            ...checkboxStates,
+            [id]: !checkboxStates[id],
+        });
     };
-
-
 
     function handleDeleteTask(id: string ) {
         onExcluirAtividade(id);
@@ -41,12 +40,12 @@ export function ContainerAtividade({ atividades, onExcluirAtividade, onConcluirA
                             <input
                                 className={styles.radiobutton}
                                 type="checkbox"
-                                checked={selectedValue[atividade.id]}
+                                checked={checkboxStates[atividade.id] || false}
                                 onClick={() => handleConcluirAtividade(atividade.id)}
-                                onChange={handleChange}
+                                onChange={() => handleCheckboxChange(atividade.id)}
                             /></div>
                         <div className={styles.containerAtividadeDescricao}>
-                            <p className={styles.description}>
+                            <p className={(checkboxStates[atividade.id] || false) ? styles.descriptionRiscado : styles.description}>
                                 {atividade.descricao}
                             </p>
                         </div>

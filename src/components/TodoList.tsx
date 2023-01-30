@@ -25,8 +25,6 @@ export function TodoList() {
         atividades
             .filter(atividade => id == atividade.id)
             .map(atividade => atividade.isComplete = !atividade.isComplete )
-        console.log( atividades
-            .filter(atividade => id == atividade.id))
         setAtividades([...atividades]);
     }
 
