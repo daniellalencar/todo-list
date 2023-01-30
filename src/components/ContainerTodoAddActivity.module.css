@@ -1,0 +1,40 @@
+.containerTodoAddActivity {
+    display: flex;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    align-items: center;
+    text-align: center;
+}
+.containerTodoAddActivity button {
+    padding: 1rem 1.5rem;
+    margin-top: 1rem;
+    border-radius: 8px;
+    border: 0;
+    background: var(--green-500);
+    color: var(--white);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.1s;
+}
+
+
+.containerTodoAddActivityText,
+.containerTodoAddActivity button {
+    display: flex;
+    align-items: center;
+}
+
+
+
+.containerTodoAddActivity input[type="text"] {
+    padding: 1rem 1.5rem;
+    margin-top: 1rem;
+    border-radius: 8px;
+    border: 1px;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.1s;
+    padding-right: 100 rem;
+}

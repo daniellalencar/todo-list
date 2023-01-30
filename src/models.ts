@@ -1,0 +1,6 @@
+export interface Atividade {
+    id: string;
+    descricao: string;
+    isComplete: boolean;
+}
+
