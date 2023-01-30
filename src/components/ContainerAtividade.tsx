@@ -9,10 +9,6 @@ interface IProps {
     onConcluirAtividade: (id: string) => void;
 }
 
-interface CheckBoxAtividade {
-    id: string;
-    isEnabled: boolean;
-}
 type CheckboxStates = { [key: string]: boolean };
 export function ContainerAtividade({ atividades, onExcluirAtividade, onConcluirAtividade }: IProps) {
     const [checkboxStates, setCheckboxStates] = useState<CheckboxStates>({});
